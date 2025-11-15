@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Carrito • Le Petit Délice</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+
+<body class="bg-crema">
+
+<div class="container py-5">
+    <h1 class="titulo-rosa mb-4 text-center">🛒 Carrito</h1>
+
+    {% if items %}
+    <table class="table table-bordered shadow bg-white">
+        <thead class="table-dark">
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for item in items %}
+            <tr>
+                <td>{{ item.producto.nombre }}</td>
+                <td>{{ item.cantidad }}</td>
+                <td>S/ {{ item.producto.precio }}</td>
+                <td>S/ {{ item.subtotal }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h3 class="text-end total-text">Total: S/ {{ total }}</h3>
+
+    {% else %}
+        <p class="text-center text-muted">Tu carrito está vacío.</p>
+    {% endif %}
+</div>
+
+</body>
+</html>
