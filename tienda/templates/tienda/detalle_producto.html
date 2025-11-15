@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ producto.nombre }} • Le Petit Délice</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+
+<body class="bg-crema">
+
+<div class="container py-4">
+    <a href="{% url 'tienda:home' %}" class="btn btn-volver">← Volver</a>
+
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <img src="{{ producto.imagen_url }}" class="detalle-img shadow">
+        </div>
+
+        <div class="col-md-6">
+            <h1 class="titulo-choco">{{ producto.nombre }}</h1>
+            <h5 class="categoria-text">{{ producto.categoria.nombre }}</h5>
+
+            <p class="descripcion-text mt-3">{{ producto.descripcion }}</p>
+
+            <p class="precio-detalle">S/ {{ producto.precio }}</p>
+
+            <a href="{% url 'tienda:agregar' producto.id %}" class="btn btn-agregar mt-4">
+                🛒 Agregar al carrito
+            </a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
